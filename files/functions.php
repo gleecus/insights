@@ -19,4 +19,4 @@ function wntr_child_resscripts() {
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'wntr_child_resscripts' );
-add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
+add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
