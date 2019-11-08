@@ -25,7 +25,7 @@ add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
 add_filter( 'gettext', 'translate_reply' );
 add_filter( 'ngettext', 'translate_reply' );
 
-function translate_reply($translated) {}
+function translate_reply($translated) {
 	$translated = str_ireplace( 'Ship to a different address?', 'SHIPPING DETAILS', $translated);
 	return $translated;
 }
