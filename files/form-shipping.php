@@ -1,6 +1,3 @@
-
-
-
 <?php
 /**
  * Checkout shipping information form
@@ -21,7 +18,6 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<script>document.getElementById('ship-to-different-address').style.pointerEvents = 'none';</script>
 <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
