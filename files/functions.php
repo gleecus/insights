@@ -29,18 +29,3 @@ function translate_reply($translated) {
 	$translated = str_ireplace( 'Ship to a different address?', 'SHIPPING DETAILS', $translated);
 	return $translated;
 }
-
-function redirect_login_page(){
-       if(is_user_logged_in()){
-                return;
-       }
-       global $post;
-       // Store for checking if this page equals wp-login.php
-       // permalink to the custom login page
-       $login_page  = get_permalink( '11252' );
-       if( has_shortcode($post->post_content, "woocommerce_my_account") ) {
-           wp_redirect( $login_page );
-           exit();
-       }
-   }
-add_action( 'template_redirect','redirect_login_page' );
