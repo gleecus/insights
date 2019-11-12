@@ -29,3 +29,23 @@ function translate_reply($translated) {
 	$translated = str_ireplace( 'Ship to a different address?', 'SHIPPING DETAILS', $translated);
 	return $translated;
 }
+
+add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+
+function add_loginout_link( $items, $args ) {
+
+  if (is_user_logged_in() && $args->theme_location == 'primary') {
+
+   $items .= '<li><a href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">Log Out</a></li>';
+
+  }
+
+  elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
+
+   $items .= '<li><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Log In</a></li>';
+
+  }
+
+  return $items;
+
+}
