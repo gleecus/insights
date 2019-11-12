@@ -37,7 +37,8 @@ function redirect_login_page(){
        global $post;
        // Store for checking if this page equals wp-login.php
        // permalink to the custom login page
-       $login_page  = get_permalink( 'login' );
+       // $login_page  = get_permalink( 'login' );
+       $login_page  = get_permalink( '11252' );
        if( has_shortcode($post->post_content, "woocommerce_my_account") ) {
            wp_redirect( $login_page );
            exit();
