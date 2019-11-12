@@ -30,22 +30,19 @@ function translate_reply($translated) {
 	return $translated;
 }
 
-add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 
-function add_loginout_link( $items, $args ) {
-
-  if (is_user_logged_in() && $args->theme_location == 'primary') {
-
-   $items .= '<li><a href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">Log Out</a></li>';
-
-  }
-
-  elseif (!is_user_logged_in() && $args->theme_location == 'primary') {
-
-   $items .= '<li><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Log In</a></li>';
-
-  }
-
-  return $items;
-
+add_filter( 'wp_nav_menu_items', 'my_account_loginout_link', 10, 2 );
+/**
+* Add WooCommerce My Account Login/Logout to Registered Menu
+*
+* @link https://support.woothemes.com/hc/en-us/articles/203106357-Add-Login-Logout-Links-To-The-Custom-Primary-Menu-Area
+*/
+function my_account_loginout_link( $items, $args ) {
+   if (is_user_logged_in() && $args->primary-menu == 'primary') { //change your theme registered menu name to suit
+       $items .= '<li><a href="'. wp_logout_url( get_permalink( wc_get_page_id( 'shop' ) ) ) .'">Log Out</a></li>'; //change logout link, here it goes to 'shop', you may want to put it to 'myaccount'
+   }
+   elseif (!is_user_logged_in() && $args->primary-menu == 'primary') {//change your theme registered menu name to suit
+       $items .= '<li><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Log In</a></li>';
+   }
+   return $items;
 }
