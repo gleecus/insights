@@ -45,3 +45,17 @@ function redirect_login_page(){
        }
    }
 add_action( 'template_redirect','redirect_login_page' );
+
+// 13-Nov-2019
+add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+function add_loginout_link( $items, $args ) {
+  if (is_user_logged_in() && $args->theme_location == 'primary_navigation') {
+      //echo "hello friend how are";
+      $items .= '<li><a href="'. wp_logout_url( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) ) .'">Log Out</a></li>';
+  }
+  elseif (!is_user_logged_in() && $args->theme_location == 'primary_navigation') {
+      $items .= '<li><a href="' . get_permalink( woocommerce_get_page_id( 'myaccount' ) ) . '">Log In</a></li>';
+  }
+  return $items;
+}
+
