@@ -58,6 +58,3 @@ function add_loginout_link( $items, $args ) {
   }
   return $items;
 }
-// 15-Nov-2019
-wp_dequeue_script( 'wc-add-to-cart-variation' );
-wp_dequeue_script( 'wc-cart' );
