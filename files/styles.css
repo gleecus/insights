@@ -20,3 +20,20 @@ input#ship-to-different-address-checkbox {
 h3#ship-to-different-address {
     pointer-events: none;
 }
+/* 21-Nov-2019 from vivek added below */
+.woocommerce ul.products li .container-inner, .woocommerce-page ul.products li .container-inner {
+    clear: both;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+}
+
+.price_label, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+    float: right !important;
+}
+
