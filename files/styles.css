@@ -1,0 +1,22 @@
+/*
+Theme Name: megamall-child
+Template: megamall
+Author: Webibazaar
+Author URI: http://www.winterinfotech.com
+Version: 1.0
+Description: Our default theme lets you create a responsive magazine website with a sleek, modern design.
+License: GNU General Public License v2
+License URI: http://www.winterinfotech.com/license
+Tags:  one-column, two-columns, right-sidebar,  custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sti
+cky-post, translation-ready
+Text Domain: Megamall
+*/
+.heateor_sss_sharing_title {
+    margin-bottom: 10px;
+}
+input#ship-to-different-address-checkbox {
+    display: none;
+}
+h3#ship-to-different-address {
+    pointer-events: none;
+}
