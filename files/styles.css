@@ -32,3 +32,6 @@ h3#ship-to-different-address {
     border-radius: 4px;
     display: block;
 }
+.price_label, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+    float: right !important;
+}
