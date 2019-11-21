@@ -15,7 +15,7 @@ add_action( 'wp_enqueue_scripts', 'wntr_child_scripts' );
 
 if ( ! function_exists( 'wntr_child_resscripts' ) ) :
 function wntr_child_resscripts() {
-   // wp_enqueue_style( 'megamall-child-resstyle', get_template_directory_uri(). '/responsive.css');	
+    wp_enqueue_style( 'megamall-child-resstyle', get_template_directory_uri(). '/responsive.css');	
 }
 endif;
 add_action( 'wp_enqueue_scripts', 'wntr_child_resscripts' );
