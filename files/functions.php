@@ -1,35 +1,17 @@
-<?php
-/**
- * @copyright  Copyright (c) (http://www.winterinfotech.com)
- * @license    http://www.winterinfotech.com/license/
- * @author         Webibazaar
- * @version        Release: 1.0
- */
-
-if ( ! function_exists( 'wntr_child_scripts' ) ) :
-function wntr_child_scripts() {
-    wp_enqueue_style( 'megamall-child-style', get_template_directory_uri(). '/style.css');	
+<?php add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'bootstrap', 'parent-style' ) );
+    wp_enqueue_style( 'dynamic-css', get_stylesheet_directory_uri() . '/dynamic.css' );
 }
-endif;
-add_action( 'wp_enqueue_scripts', 'wntr_child_scripts' );
-
-if ( ! function_exists( 'wntr_child_resscripts' ) ) :
-function wntr_child_resscripts() {
-    wp_enqueue_style( 'megamall-child-resstyle', get_template_directory_uri(). '/responsive.css');	
-}
-endif;
 add_action( 'wp_enqueue_scripts', 'wntr_child_resscripts' );
 add_filter( 'woocommerce_ship_to_different_address_checked', '__return_true' );
-
 // Change words Ship to a different address
 add_filter( 'gettext', 'translate_reply' );
 add_filter( 'ngettext', 'translate_reply' );
-
 function translate_reply($translated) {
 	$translated = str_ireplace( 'Ship to a different address?', 'SHIPPING DETAILS', $translated);
 	return $translated;
 }
-
 function redirect_login_page(){
        if(is_user_logged_in()){
                 return;
@@ -45,7 +27,6 @@ function redirect_login_page(){
        }
    }
 add_action( 'template_redirect','redirect_login_page' );
-
 // 13-Nov-2019
 add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
