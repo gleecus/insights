@@ -44,7 +44,7 @@ function add_loginout_link( $items, $args ) {
 add_filter( 'the_title', 'shorten_woo_product_title', 10, 2 );
 function shorten_woo_product_title( $title, $id ) {
     if ( ! is_singular( array( 'product' ) ) && get_post_type( $id ) === 'product' ) {
-       return substr( $title, 0, 27).'...'; // change last number to the number of characters you want	
+       return substr( $title, 0, 27) . '...'; // change last number to the number of characters you want	
     } else {
         return $title;
     }
