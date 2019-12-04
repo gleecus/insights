@@ -39,3 +39,11 @@ function add_loginout_link( $items, $args ) {
   }
   return $items;
 }
+// 4-Dec-2019
+function shorten_woo_product_title( $title, $id ) {
+ if ( is_shop() && get_post_type( $id ) === 'product' ) {
+   return wp_trim_words( $title, 20 ); // change last number to the number of WORDS you want
+ } else {
+    return $title;
+ }
+}
